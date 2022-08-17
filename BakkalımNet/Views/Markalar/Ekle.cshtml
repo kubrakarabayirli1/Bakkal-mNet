@@ -1,0 +1,22 @@
+﻿@model BakkalımNet.Models.Entity.marka
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Marka Ekleme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Ekle", "Markalar", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.HiddenFor(x => x.marka_id)
+            @Html.LabelFor(x => x.m_adi)
+            @Html.TextBoxFor(x => x.m_adi, new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-secondary">Marka Ekle</button>
+        </div>
+    }
+
+</div>

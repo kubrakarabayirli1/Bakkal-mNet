@@ -1,0 +1,56 @@
+﻿@model BakkalımNet.MyModel.MyUrunler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürün Ekleme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Ekle", "Urunler", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_adi)
+            @Html.TextBoxFor(x => x.u_adi, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_barkodu)
+            @Html.TextBoxFor(x => x.u_barkodu, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_uretim_tarihi)
+            @Html.TextBoxFor(x => x.u_uretim_tarihi, new { @class = "form-control", type = "date" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_tuketim_tarihi)
+            @Html.TextBoxFor(x => x.u_tuketim_tarihi, new { @class = "form-control", type = "date" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_fiyat)
+            @Html.TextBoxFor(x => x.u_fiyat, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_agirlik)
+            @Html.TextBoxFor(x => x.u_agirlik, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.u_rengi)
+            @Html.TextBoxFor(x => x.u_rengi, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.marka.m_adi)
+            @Html.DropDownListFor(x => x.marka_id, Model.MarkaListesi, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.kategori.k_adi)
+            @Html.DropDownListFor(x => x.kategori_id, Model.KategoriListesi, "Seçiniz", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.stok.s_adedi)
+            @Html.TextBoxFor(x => x.stok.s_adedi, new { @class = "form-control" })
+        </div>
+        <div><button class="btn btn-success">Ürün Ekle</button></div>
+    }
+
+</div>
+<!---->

@@ -1,0 +1,29 @@
+﻿@model BakkalımNet.Models.Entity.stok
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stok Ekleme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Kaydet", "Stok", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.HiddenFor(x => x.stok_id)
+        @Html.LabelFor(x => x.s_adedi)
+        @Html.TextBoxFor(x => x.s_adedi, new { @class = "form-control" })
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.s_giris_tarihi)
+            @Html.TextBoxFor(x => x.s_giris_tarihi, new { @class = "form-control", type = "date" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.s_bitis_tarihi)
+            @Html.TextBoxFor(x => x.s_bitis_tarihi, new { @class = "form-control", type = "date" })
+        </div>
+        <div class="form-group">
+            <button class="btn  btn-success">Stok Ekle</button>
+        </div>
+
+    }
+</div>

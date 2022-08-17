@@ -1,0 +1,50 @@
+﻿@model List<BakkalımNet.Models.Entity.urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürün Listesi</h2>
+<table  class="table">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Barkod No</th>
+            <th>Üretim Tarihi</th>
+            <th>Tüketim Tarihi</th>
+            <th>Fiyat</th>
+            <th>Ağırlık</th>
+            <th>Renk</th>
+            <th>Marka</th>
+            <th>Kategori</th>
+            <th>Stok</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@Html.DisplayFor(x => item.urun_id)</th>
+            <td>@Html.DisplayFor(x => item.u_adi)</td>
+            <td>@Html.DisplayFor(x => item.u_barkodu)</td>
+            <td>@Html.DisplayFor(x => item.u_uretim_tarihi)</td>
+            <td>@Html.DisplayFor(x => item.u_tuketim_tarihi)</td>
+            <td>@Html.DisplayFor(x => item.u_fiyat)</td>
+            <td>@Html.DisplayFor(x => item.u_agirlik)</td>
+            <td>@Html.DisplayFor(x => item.u_rengi)</td>
+            <td>@Html.DisplayFor(x => item.marka.m_adi)</td>
+            <td>@Html.DisplayFor(x => item.kategori.k_adi)</td>
+            <td>@Html.DisplayFor(x => item.stok.s_adedi)</td>
+            <td>@Html.ActionLink("Sil", "SilBilgiGetir", new { id = item.urun_id }, new { @class = "btn btn-danger" })</td>
+            <td>@Html.ActionLink("Güncelle", "GuncelleBilgiGetir", new { id = item.urun_id }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("SatisEkle", "SatisEkle", "SatisMaddeleri", new { id = item.urun_id }, new {@class="btn btn-success"} )</td>
+        </tr>
+        }
+    </tbody> 
+
+</table>
+<a href="/Urunler/Ekle" class="btn btn-success">Ürün Ekle</a>

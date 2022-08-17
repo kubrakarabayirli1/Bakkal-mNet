@@ -1,0 +1,22 @@
+﻿@model BakkalımNet.Models.Entity.marka  
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Marka Silme Sayfası</h2>
+<h3>Kayıt silinsin mi?</h3>
+<div class="container">
+    @using (Html.BeginForm("Sil", "Markalar"))
+    {
+        @Html.HiddenFor(x => x.marka_id)
+
+        <div class="form-group">
+            <b>@Html.LabelFor(x => x.m_adi)</b>
+            @Html.DisplayFor(x => x.m_adi)
+        </div>
+        <div><button class="btn btn-danger">Sil</button><a href="/Markalar/Index/">Ana Sayfa</a></div>
+    }
+
+</div>
+

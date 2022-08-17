@@ -1,0 +1,22 @@
+﻿@model BakkalımNet.Models.Entity.kategori
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Silme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Sil", "Kategoriler"))
+    { 
+        <h1></h1>
+        <h4>Kayıt silinsin mi?</h4>
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.kategori_id) 
+            @Html.LabelFor(x=>x.k_adi)
+            @Html.DisplayFor(x=>x.k_adi,new {@class="form-control"})
+        </div>
+        <div>
+            <button class="btn btn-danger">Kategori Sil</button><a href="/Kategoriler/Index/">Ana Sayfa</a>
+        </div>
+    }
+</div>

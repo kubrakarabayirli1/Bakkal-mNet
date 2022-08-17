@@ -1,0 +1,74 @@
+﻿@model List<BakkalımNet.Models.Entity.satis_maddeleri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="container">@User.Identity.Name</h2>
+<h3 class="container">Sepetim</h3>
+<table class="table table-bordered">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>Ürün Bilgisi</th>
+            <td>Satış Miktar</td>
+            <td>Satış Tutarı</td>
+            <td>İndirim</td>
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@item.urun.kategori.k_adi @item.urun.marka.m_adi @item.urun.u_barkodu-@item.urun.u_adi</th>
+            <td>
+                <div>@Html.ActionLink("-", "Azalt", new { id = item.sm_id }, new { @class = "btn btn-secondary btn-sm azalt" })</div>
+
+                @Html.TextBoxFor(x => item.si_miktar, new { @class = "txt",data_id=item.sm_id })
+
+                <div>@Html.ActionLink("+", "Arttir", new { id = item.sm_id }, new { @class = "btn btn-info btn-sm arttir" })</div>
+            </td>
+            <td>@item.si_fiyat</td>
+            <td>@item.si_iskonto</td>
+            <td>@Html.ActionLink("Sil", "Sil", new { id = item.sm_id }, new { @class = "btn btn-danger" })</td>
+            <td>@Html.ActionLink("Satın al", "SatinAl","Satislar", new { id = item.sm_id }, new { @class = "btn btn-success" })</td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+<div class="container">
+    @ViewBag.Tutar
+</div>
+<br/>
+<br/>
+<div class="container form-group">
+     @Html.ActionLink("Hepsini Satın Al", "HepsiniSatinAl", "Satislar", new {@class="btn btn-success form-control"})
+</div>
+<div class="container form-group">
+    @Html.ActionLink("Hepsini Sil", "HepsiniSil", null, new {@class="btn btn-danger form-control"})
+</div>
+<style>
+    .txt {
+        line-height: 18px;
+        width: 50px !important;
+        height: 32px;
+        font-size: 14px;
+        text-align: center;
+        border: solid 1px #ccc;
+        margin-left:23px;
+    }
+    .arttir {
+        display: block;
+        cursor: pointer;
+        border: solid 1px #ccc;
+        position: absolute;
+        margin-top:-32px;
+        margin-left:72px;
+    }
+    .azalt {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+    }
+</style>

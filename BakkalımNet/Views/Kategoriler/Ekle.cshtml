@@ -1,0 +1,21 @@
+﻿@model BakkalımNet.MyModel.MyKategoriler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Ekleme</h2>
+<div class="container">
+    <form action="/Kategoriler/Ekle2/" method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label>Kategori Adı</label>
+            <input type="text" name="k_adi" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success">Kategori Ekle</button>
+        </div>
+    </form>
+
+</div>
+

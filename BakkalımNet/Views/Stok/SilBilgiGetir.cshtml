@@ -1,0 +1,31 @@
+﻿@model BakkalımNet.Models.Entity.stok
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stok Silme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Sil", "Stok"))
+    {
+        <h1></h1>
+        <h4>Kayıt silinsin mi?</h4>
+        @Html.HiddenFor(x => x.stok_id)
+        <div class="form-group">
+            <b> @Html.LabelFor(x => x.s_adedi)</b>
+            @Html.DisplayFor(x => x.s_adedi, new { @class = "form-control" })
+        </div>
+        <div>
+            <b> @Html.LabelFor(x => x.s_giris_tarihi)</b>
+            @Html.DisplayFor(x => x.s_giris_tarihi, new { @class = "form-control" })
+        </div>
+        <div>
+            <b> @Html.LabelFor(x => x.s_bitis_tarihi)</b>
+            @Html.DisplayFor(x => x.s_bitis_tarihi, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <button class="btn btn-danger">Stok Sil</button><a href="/Stok/Index/">Ana Sayfa</a>
+        </div>
+    }
+</div>

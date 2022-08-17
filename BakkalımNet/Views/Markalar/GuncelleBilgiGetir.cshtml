@@ -1,0 +1,20 @@
+﻿@model BakkalımNet.MyModel.MyMarkalar
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Marka Güncelleme Sayfası</h2>
+<div class="container">
+    @using (Html.BeginForm("Guncelle","Markalar"))
+    {
+        @Html.HiddenFor(x=>x.marka_id)
+    <div class="form-group">
+        @Html.LabelFor(x=>x.m_adi)
+        @Html.TextBoxFor(x=>x.m_adi, new {@class="form-control"})
+    </div>
+    <div><button class="btn btn-primary">Marka Güncelle</button></div>
+    }
+
+</div>
+

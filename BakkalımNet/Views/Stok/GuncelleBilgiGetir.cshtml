@@ -1,0 +1,27 @@
+﻿@model BakkalımNet.MyModel.MyStok
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stok Güncelleme Sayfası</h2>
+<div class="container">
+    <form action="/Stok/Guncelle/">
+
+        @Html.HiddenFor(x => x.stok_id)
+        <div class="form-group">
+            <b>Stok adedi</b>
+            @Html.TextBoxFor(x => x.s_adedi, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <b>Stok Giriş Tarihi</b>
+            @Html.TextBoxFor(x => x.s_giris_tarihi, new { @class = "form-control",type="date" })
+        </div>
+        <div class="form-group">
+            <b>Stok Bitiş Tarihi</b>
+            @Html.TextBoxFor(x => x.s_bitis_tarihi, new { @class = "form-control",type="date" })
+        </div>
+        <div><button class="btn btn-primary">Stok  Güncelle</button></div>
+    </form>
+
+</div>

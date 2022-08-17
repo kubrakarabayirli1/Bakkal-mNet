@@ -1,0 +1,23 @@
+﻿@model BakkalımNet.Models.Entity.urun
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Urun Silme Sayfası</h2>
+<h3>Kayıt silinsin mi?</h3>
+<div class="container">
+    @using (Html.BeginForm("Sil","Urunler"))
+    {
+        @Html.HiddenFor(x => x.urun_id)
+
+        <div class="form-group">
+            <b>@Html.LabelFor(x => x.u_adi)</b>
+            @Html.DisplayFor(x => x.u_adi)
+        </div>
+        <div><button class="btn btn-danger">Sil</button><a href="/Urunler/Index/">Ana Sayfa</a></div>
+    }
+
+</div>
+

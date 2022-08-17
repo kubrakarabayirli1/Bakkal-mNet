@@ -1,0 +1,20 @@
+﻿@model BakkalımNet.MyModel.MyKategoriler
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Güncelleme Sayfası</h2>
+<div class="container">
+    <form action="/Kategoriler/Guncelle/">
+      
+        @Html.HiddenFor(x => x.kategori_id)
+        <div class="form-group">
+            <b>Kategori Adı</b>
+            @Html.TextBoxFor(x => x.k_adi, new { @class = "form-control" })
+        </div>
+        <div><button class="btn btn-primary">Kategori  Güncelle</button></div>
+    </form>
+
+</div>
+

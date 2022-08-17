@@ -1,0 +1,68 @@
+﻿@model BakkalımNet.Models.Entity.kullanici
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı Kayıt Sayfası</title>
+    <link href="~/LoginScript/Scriptler/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body class="container col-md-7">
+    <br />
+    <div style="height:50px;background-color:#0094ff;color:white;text-align:center">
+        <p style="margin-top:auto;margin-bottom:auto;font-size:30px">Kullanıcı Kayıt Sayfası</p>
+    </div>
+    @using (Html.BeginForm("Kaydol", "Kullanicilar", FormMethod.Post)) {
+<div style="margin-top:20px;">
+    @Html.HiddenFor(x => x.kullanici_id)
+    @Html.LabelFor(x => x.k_kullaniciadi)
+    @Html.TextBoxFor(x => x.k_kullaniciadi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.k_kullaniciadi, null, new { @class = "text-danger" })
+</div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_parola)
+        @Html.TextBoxFor(x => x.k_parola, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_parola, null, new { @class = "text-danger" })
+    </div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_adi)
+        @Html.TextBoxFor(x => x.k_adi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_adi, null, new { @class = "text-danger" })
+    </div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_soyadi)
+        @Html.TextBoxFor(x => x.k_soyadi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_soyadi, null, new { @class = "text-danger" })
+    </div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_eposta)
+        @Html.TextBoxFor(x => x.k_eposta, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_eposta, null, new { @class = "text-danger" })
+    </div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_telefon)
+        @Html.TextBoxFor(x => x.k_telefon, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_telefon, null, new { @class = "text-danger" })
+    </div>
+    <div style="margin-top:20px;">
+        @Html.LabelFor(x => x.k_durum)
+        @Html.TextBoxFor(x => x.k_durum, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.k_durum, null, new { @class = "text-danger" })
+    </div>
+        <div style="margin-top:20px;">
+              @Html.LabelFor(x => x.rol.r_adi)
+              @Html.TextBoxFor(x => x.rol.r_adi, new { @class = "form-control" })
+              @Html.ValidationMessageFor(x => x.rol.r_adi, null, new { @class = "text-danger" })
+          </div>
+    <div style="margin-top:20px;">
+        <button class="btn btn-primary form-control">Kaydol</button>
+    </div>
+    <p></p>
+    }
+</body>
+</html>

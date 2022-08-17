@@ -1,0 +1,33 @@
+﻿@model List<BakkalımNet.Models.Entity.marka>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Marka Listesi</h2>
+<table class="table">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>Marka ID</th>
+            <th>Marka Adı</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+
+    </thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <th>
+           @Html.DisplayFor(x=>item.marka_id)
+        </th>
+        <td>  @Html.DisplayFor(x => item.m_adi  )</td>
+        <td><a href="/Markalar/SilBilgiGetir/@item.marka_id" class="btn btn-danger">Sil</a></td>
+        <td><a href="/Markalar/GuncelleBilgiGetir/@item.marka_id" class="btn btn-primary">Güncelle</a></td>
+
+    </tr>
+    }
+</tbody>
+</table>
+<a href="/Markalar/Ekle/" class="btn btn-success">Marka Ekle</a>

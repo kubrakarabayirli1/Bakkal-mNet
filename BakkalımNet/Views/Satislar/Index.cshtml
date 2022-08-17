@@ -1,0 +1,34 @@
+﻿@model List<BakkalımNet.Models.Entity.satis>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Satışlar Listesi</h2>
+<table class="table">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>Satış Tarihi</th>
+            <th>Satış Durumu(True/False)</th>
+            <th>Satış Elemanının Adı </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <th>@Html.DisplayFor(x => item.s_tarih)</th>
+                <th>@Html.DisplayFor(x => item.s_durum)</th>
+                <th>@Html.DisplayFor(x => item.kullanici.k_kullaniciadi)</th>
+                @*<td><a href="/Satis/Sil/@item.satis_id" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Satis/SatisGetir/@item.satis_id" class="btn btn-success">Güncelle</a></td>*@
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+@*<a href="/Satislar/YeniSatis" class="btn btn-info">Yeni Satış</a>*@
